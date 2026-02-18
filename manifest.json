@@ -1,0 +1,17 @@
+{
+  "name": "מורה שיעור - רמב״ם יומי",
+  "short_name": "מורה שיעור",
+  "description": "Checklist for Daily Rambam Cycle 46",
+  "start_url": "index.html",
+  "display": "standalone",
+  "background_color": "#f8fafc",
+  "theme_color": "#4f46e5",
+  "icons": [
+    {
+      "src": "https://cdn-icons-png.flaticon.com/512/3504/3504041.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}

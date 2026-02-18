@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#4f46e5" />
+    <link rel="manifest" href="manifest.json" />
+    <title>מורה שיעור - רמב״ם יומי</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Assistant:wght@300;400;600;700&family=Frank+Ruhl+Libre:wght@700&display=swap" rel="stylesheet">
+    <style>
+      body {
+        font-family: 'Assistant', sans-serif;
+      }
+      .font-serif {
+        font-family: 'Frank Ruhl Libre', serif;
+      }
+      /* Hide scrollbar for clean app look */
+      .no-scrollbar::-webkit-scrollbar {
+        display: none;
+      }
+      .no-scrollbar {
+        -ms-overflow-style: none;
+        scrollbar-width: none;
+      }
+    </style>
+  <script type="importmap">
+{
+  "imports": {
+    "@vitejs/plugin-react": "https://esm.sh/@vitejs/plugin-react@^5.1.4",
+    "vite": "https://esm.sh/vite@^7.3.1",
+    "react/": "https://esm.sh/react@^19.2.4/",
+    "react": "https://esm.sh/react@^19.2.4",
+    "react-dom/": "https://esm.sh/react-dom@^19.2.4/"
+  }
+}
+</script>
+<link rel="stylesheet" href="/index.css">
+</head>
+  <body class="bg-slate-50 text-slate-900">
+    <div id="root"></div>
+    <!-- Use relative path for entry point -->
+    <script type="module" src="index.tsx"></script>
+    <script>
+      if ('serviceWorker' in navigator) {
+        window.addEventListener('load', () => {
+          try {
+            // Resolve sw.js relative to the current URL to ensure it matches the page origin
+            // and avoid "Origin mismatch" errors in sandboxed environments.
+            const swUrl = new URL('sw.js', window.location.href).href;
+            navigator.serviceWorker.register(swUrl)
+              .then(reg => {
+                console.log('SW registered with scope:', reg.scope);
+              })
+              .catch(err => {
+                console.warn('SW registration failed:', err);
+              });
+          } catch (e) {
+            console.warn('Could not initialize Service Worker:', e);
+          }
+        });
+      }
+    </script>
+  <script type="module" src="/index.tsx"></script>
+</body>
+</html>
